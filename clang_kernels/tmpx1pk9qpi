@@ -1,0 +1,76 @@
+
+void r_224_14_14_5_3_5(float* restrict data0, float* restrict data1, float* restrict data2, float* restrict data3, float* restrict data4, float* restrict data5, float* restrict data6) {
+  for (int ridx0 = 0; ridx0 < 224; ridx0++) {
+    int alu0 = (ridx0*588);
+    int alu1 = (ridx0*3);
+    int alu2 = (alu1+1);
+    int alu3 = (alu1+2);
+    for (int ridx1 = 0; ridx1 < 14; ridx1++) {
+      int alu4 = (ridx1*14);
+      for (int ridx2 = 0; ridx2 < 14; ridx2++) {
+        int alu5 = (alu0+alu4+ridx2);
+        float acc0 = 0.0f;
+        float acc1 = 0.0f;
+        float acc2 = 0.0f;
+        for (int ridx3 = 0; ridx3 < 5; ridx3++) {
+          int alu6 = (ridx2+alu0+alu4+(ridx3*14));
+          int alu7 = (ridx1+ridx3);
+          _Bool alu8 = (((alu7<2)!=1)&(alu7<16));
+          _Bool alu9 = (alu8&(ridx2<12));
+          _Bool alu10 = (alu8&(ridx2<13));
+          _Bool alu11 = (alu8&((ridx2<1)!=1));
+          _Bool alu12 = (alu8&((ridx2<2)!=1));
+          int alu13 = (alu1+(ridx3*3360));
+          float val0 = (alu12?*(data1+alu6+-30):0.0f);
+          float val1 = (alu11?*(data1+alu6+-29):0.0f);
+          float val2 = (alu8?*(data1+alu6+-28):0.0f);
+          float val3 = (alu10?*(data1+alu6+-27):0.0f);
+          float val4 = (alu9?*(data1+alu6+-26):0.0f);
+          float val5 = (alu12?*(data1+alu6+166):0.0f);
+          float val6 = (alu11?*(data1+alu6+167):0.0f);
+          float val7 = (alu8?*(data1+alu6+168):0.0f);
+          float val8 = (alu10?*(data1+alu6+169):0.0f);
+          float val9 = (alu9?*(data1+alu6+170):0.0f);
+          float val10 = (alu12?*(data1+alu6+362):0.0f);
+          float val11 = (alu11?*(data1+alu6+363):0.0f);
+          float val12 = (alu8?*(data1+alu6+364):0.0f);
+          float val13 = (alu10?*(data1+alu6+365):0.0f);
+          float val14 = (alu9?*(data1+alu6+366):0.0f);
+          float val15 = *(data2+alu13+1);
+          float val16 = *(data2+alu13+2);
+          float val17 = *(data2+alu13+672);
+          float val18 = *(data2+alu13+673);
+          float val19 = *(data2+alu13+674);
+          float val20 = *(data2+alu13+1344);
+          float val21 = *(data2+alu13+1345);
+          float val22 = *(data2+alu13+1346);
+          float val23 = *(data2+alu13+2016);
+          float val24 = *(data2+alu13+2017);
+          float val25 = *(data2+alu13+2018);
+          float val26 = *(data2+alu13+2688);
+          float val27 = *(data2+alu13+2689);
+          acc1 = (acc1+(val5*val15)+(val6*val18)+(val7*val21)+(val8*val24)+(val9*val27));
+          float val28 = *(data2+alu13+2690);
+          acc2 = (acc2+(val10*val16)+(val11*val19)+(val12*val22)+(val13*val25)+(val14*val28));
+          float val29 = *(data2+alu13);
+          acc0 = (acc0+(val0*val29)+(val1*val17)+(val2*val20)+(val3*val23)+(val4*val26));
+        }
+        float val30 = *(data3+alu2);
+        float val31 = *(data3+alu3);
+        float val32 = *(data3+alu1);
+        float val33 = *(data4+alu2);
+        float val34 = *(data4+alu3);
+        float val35 = *(data4+alu1);
+        float val36 = *(data5+alu2);
+        float val37 = *(data5+alu3);
+        float val38 = *(data5+alu1);
+        float val39 = *(data6+alu2);
+        *(data0+alu5+196) = (((acc1-val30)*val33*__builtin_sqrtf((1/(val36+1e-05f))))+val39);
+        float val40 = *(data6+alu3);
+        *(data0+alu5+392) = (((acc2-val31)*val34*__builtin_sqrtf((1/(val37+1e-05f))))+val40);
+        float val41 = *(data6+alu1);
+        *(data0+alu5) = (((acc0-val32)*val35*__builtin_sqrtf((1/(val38+1e-05f))))+val41);
+      }
+    }
+  }
+}

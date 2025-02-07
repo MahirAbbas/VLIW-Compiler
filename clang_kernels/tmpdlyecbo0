@@ -1,0 +1,51 @@
+typedef float float4 __attribute__((aligned(16),vector_size(16)));
+void E_240_49_4(float* restrict data0, float* restrict data1, float* restrict data2) {
+  for (int ridx0 = 0; ridx0 < 240; ridx0++) {
+    for (int ridx1 = 0; ridx1 < 49; ridx1++) {
+      int alu0 = ((ridx0*196)+(ridx1<<2));
+      float val0 = *(data2+ridx0);
+      float4 val1 = *((float4*)(data1+alu0));
+      float alu1 = (val1[0]*-1.4426950408889634f);
+      float alu2 = (val1[1]*-1.4426950408889634f);
+      float alu3 = (val1[2]*-1.4426950408889634f);
+      float alu4 = (val1[3]*-1.4426950408889634f);
+      _Bool alu5 = (alu1!=-__builtin_inff());
+      _Bool alu6 = (alu1!=__builtin_inff());
+      _Bool alu7 = (alu1!=alu1);
+      _Bool alu8 = (alu2!=-__builtin_inff());
+      _Bool alu9 = (alu2!=__builtin_inff());
+      _Bool alu10 = (alu2!=alu2);
+      _Bool alu11 = (alu3!=-__builtin_inff());
+      _Bool alu12 = (alu3!=__builtin_inff());
+      _Bool alu13 = (alu3!=alu3);
+      _Bool alu14 = (alu4!=-__builtin_inff());
+      _Bool alu15 = (alu4!=__builtin_inff());
+      _Bool alu16 = (alu4!=alu4);
+      float alu17 = (alu6?(alu7?0.0f:(alu5?alu1:0.0f)):0.0f);
+      int cast0 = (int)((alu17+((alu17<0.0f)?-0.5f:0.5f)));
+      int alu18 = (cast0>>1);
+      int precast0 = ((alu18<<23)+1065353216);
+      int precast1 = (((cast0-alu18)<<23)+1065353216);
+      float alu19 = (alu17-(float)(cast0));
+      float alu20 = (alu9?(alu10?0.0f:(alu8?alu2:0.0f)):0.0f);
+      int cast1 = (int)((alu20+((alu20<0.0f)?-0.5f:0.5f)));
+      int alu21 = (cast1>>1);
+      int precast2 = ((alu21<<23)+1065353216);
+      int precast3 = (((cast1-alu21)<<23)+1065353216);
+      float alu22 = (alu20-(float)(cast1));
+      float alu23 = (alu12?(alu13?0.0f:(alu11?alu3:0.0f)):0.0f);
+      int cast2 = (int)((alu23+((alu23<0.0f)?-0.5f:0.5f)));
+      int alu24 = (cast2>>1);
+      int precast4 = ((alu24<<23)+1065353216);
+      int precast5 = (((cast2-alu24)<<23)+1065353216);
+      float alu25 = (alu23-(float)(cast2));
+      float alu26 = (alu15?(alu16?0.0f:(alu14?alu4:0.0f)):0.0f);
+      int cast3 = (int)((alu26+((alu26<0.0f)?-0.5f:0.5f)));
+      int alu27 = (cast3>>1);
+      int precast6 = ((alu27<<23)+1065353216);
+      int precast7 = (((cast3-alu27)<<23)+1065353216);
+      float alu28 = (alu26-(float)(cast3));
+      *((float4*)(data0+alu0)) = (float4){(val1[0]*(1/((alu6?(alu7?__builtin_nanf(""):(alu5?((alu17<__builtin_inff())?((alu17<-150.0f)?0.0f:((alu17<128.0f)?((alu17!=128.0f)?(((((((((((((alu19*0.0001535920892f)+0.001339262701f)*alu19)+0.009618384764f)*alu19)+0.05550347269f)*alu19)+0.2402264476f)*alu19)+0.6931471825f)*alu19)+1.0f)*(*((float*)&precast0))*(*((float*)&precast1))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f))*val0),(val1[1]*(1/((alu9?(alu10?__builtin_nanf(""):(alu8?((alu20<__builtin_inff())?((alu20<-150.0f)?0.0f:((alu20<128.0f)?((alu20!=128.0f)?(((((((((((((alu22*0.0001535920892f)+0.001339262701f)*alu22)+0.009618384764f)*alu22)+0.05550347269f)*alu22)+0.2402264476f)*alu22)+0.6931471825f)*alu22)+1.0f)*(*((float*)&precast2))*(*((float*)&precast3))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f))*val0),(val1[2]*(1/((alu12?(alu13?__builtin_nanf(""):(alu11?((alu23<__builtin_inff())?((alu23<-150.0f)?0.0f:((alu23<128.0f)?((alu23!=128.0f)?(((((((((((((alu25*0.0001535920892f)+0.001339262701f)*alu25)+0.009618384764f)*alu25)+0.05550347269f)*alu25)+0.2402264476f)*alu25)+0.6931471825f)*alu25)+1.0f)*(*((float*)&precast4))*(*((float*)&precast5))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f))*val0),(val1[3]*(1/((alu15?(alu16?__builtin_nanf(""):(alu14?((alu26<__builtin_inff())?((alu26<-150.0f)?0.0f:((alu26<128.0f)?((alu26!=128.0f)?(((((((((((((alu28*0.0001535920892f)+0.001339262701f)*alu28)+0.009618384764f)*alu28)+0.05550347269f)*alu28)+0.2402264476f)*alu28)+0.6931471825f)*alu28)+1.0f)*(*((float*)&precast6))*(*((float*)&precast7))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f))*val0)};
+    }
+  }
+}

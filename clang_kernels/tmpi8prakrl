@@ -1,0 +1,50 @@
+
+void E_224_49_3(float* restrict data0, float* restrict data1, float* restrict data2) {
+  for (int ridx0 = 0; ridx0 < 224; ridx0++) {
+    int alu0 = (ridx0*3);
+    for (int ridx1 = 0; ridx1 < 49; ridx1++) {
+      int alu1 = ((ridx0*147)+ridx1);
+      int alu2 = (alu1+49);
+      int alu3 = (alu1+98);
+      float val0 = *(data1+alu2);
+      float alu4 = (val0*-1.4426950408889634f);
+      _Bool alu5 = (alu4!=-__builtin_inff());
+      _Bool alu6 = (alu4!=__builtin_inff());
+      _Bool alu7 = (alu4!=alu4);
+      float alu8 = (alu6?(alu7?0.0f:(alu5?alu4:0.0f)):0.0f);
+      int cast0 = (int)((alu8+((alu8<0.0f)?-0.5f:0.5f)));
+      int alu9 = (cast0>>1);
+      int precast0 = ((alu9<<23)+1065353216);
+      int precast1 = (((cast0-alu9)<<23)+1065353216);
+      float alu10 = (alu8-(float)(cast0));
+      float val1 = *(data1+alu3);
+      float alu11 = (val1*-1.4426950408889634f);
+      _Bool alu12 = (alu11!=-__builtin_inff());
+      _Bool alu13 = (alu11!=__builtin_inff());
+      _Bool alu14 = (alu11!=alu11);
+      float alu15 = (alu13?(alu14?0.0f:(alu12?alu11:0.0f)):0.0f);
+      int cast1 = (int)((alu15+((alu15<0.0f)?-0.5f:0.5f)));
+      int alu16 = (cast1>>1);
+      int precast2 = ((alu16<<23)+1065353216);
+      int precast3 = (((cast1-alu16)<<23)+1065353216);
+      float alu17 = (alu15-(float)(cast1));
+      float val2 = *(data1+alu1);
+      float alu18 = (val2*-1.4426950408889634f);
+      _Bool alu19 = (alu18!=-__builtin_inff());
+      _Bool alu20 = (alu18!=__builtin_inff());
+      _Bool alu21 = (alu18!=alu18);
+      float alu22 = (alu20?(alu21?0.0f:(alu19?alu18:0.0f)):0.0f);
+      int cast2 = (int)((alu22+((alu22<0.0f)?-0.5f:0.5f)));
+      int alu23 = (cast2>>1);
+      int precast4 = ((alu23<<23)+1065353216);
+      int precast5 = (((cast2-alu23)<<23)+1065353216);
+      float alu24 = (alu22-(float)(cast2));
+      float val3 = *(data2+alu0+1);
+      *(data0+alu2) = (val0*(1/((alu6?(alu7?__builtin_nanf(""):(alu5?((alu8<__builtin_inff())?((alu8<-150.0f)?0.0f:((alu8<128.0f)?((alu8!=128.0f)?(((((((((((((alu10*0.0001535920892f)+0.001339262701f)*alu10)+0.009618384764f)*alu10)+0.05550347269f)*alu10)+0.2402264476f)*alu10)+0.6931471825f)*alu10)+1.0f)*(*((float*)&precast0))*(*((float*)&precast1))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f))*val3);
+      float val4 = *(data2+alu0+2);
+      *(data0+alu3) = (val1*(1/((alu13?(alu14?__builtin_nanf(""):(alu12?((alu15<__builtin_inff())?((alu15<-150.0f)?0.0f:((alu15<128.0f)?((alu15!=128.0f)?(((((((((((((alu17*0.0001535920892f)+0.001339262701f)*alu17)+0.009618384764f)*alu17)+0.05550347269f)*alu17)+0.2402264476f)*alu17)+0.6931471825f)*alu17)+1.0f)*(*((float*)&precast2))*(*((float*)&precast3))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f))*val4);
+      float val5 = *(data2+alu0);
+      *(data0+alu1) = (val2*(1/((alu20?(alu21?__builtin_nanf(""):(alu19?((alu22<__builtin_inff())?((alu22<-150.0f)?0.0f:((alu22<128.0f)?((alu22!=128.0f)?(((((((((((((alu24*0.0001535920892f)+0.001339262701f)*alu24)+0.009618384764f)*alu24)+0.05550347269f)*alu24)+0.2402264476f)*alu24)+0.6931471825f)*alu24)+1.0f)*(*((float*)&precast4))*(*((float*)&precast5))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f))*val5);
+    }
+  }
+}

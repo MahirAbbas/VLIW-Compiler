@@ -1,0 +1,58 @@
+typedef float float4 __attribute__((aligned(16),vector_size(16)));
+void r_8_32(float* restrict data0, float* restrict data1, float* restrict data2, float* restrict data3) {
+  for (int ridx0 = 0; ridx0 < 8; ridx0++) {
+    float val0 = *(data2+ridx0+8);
+    float val1 = *(data2+ridx0+16);
+    float val2 = *(data2+ridx0+24);
+    float val3 = *(data2+ridx0+32);
+    float val4 = *(data2+ridx0+40);
+    float val5 = *(data2+ridx0+48);
+    float val6 = *(data2+ridx0+56);
+    float val7 = *(data2+ridx0+64);
+    float val8 = *(data2+ridx0+72);
+    float val9 = *(data2+ridx0+80);
+    float val10 = *(data2+ridx0+88);
+    float val11 = *(data2+ridx0+96);
+    float val12 = *(data2+ridx0+104);
+    float val13 = *(data2+ridx0+112);
+    float val14 = *(data2+ridx0+120);
+    float val15 = *(data2+ridx0+128);
+    float val16 = *(data2+ridx0+136);
+    float val17 = *(data2+ridx0+144);
+    float val18 = *(data2+ridx0+152);
+    float val19 = *(data2+ridx0+160);
+    float val20 = *(data2+ridx0+168);
+    float val21 = *(data2+ridx0+176);
+    float val22 = *(data2+ridx0+184);
+    float val23 = *(data2+ridx0+192);
+    float val24 = *(data2+ridx0+200);
+    float val25 = *(data2+ridx0+208);
+    float val26 = *(data2+ridx0+216);
+    float val27 = *(data2+ridx0+224);
+    float val28 = *(data2+ridx0+232);
+    float val29 = *(data2+ridx0+240);
+    float val30 = *(data2+ridx0+248);
+    float val31 = *(data2+ridx0);
+    float val32 = *(data3+ridx0);
+    float4 val33 = *((float4*)(data1+0));
+    float4 val34 = *((float4*)(data1+4));
+    float4 val35 = *((float4*)(data1+8));
+    float4 val36 = *((float4*)(data1+12));
+    float4 val37 = *((float4*)(data1+16));
+    float4 val38 = *((float4*)(data1+20));
+    float4 val39 = *((float4*)(data1+24));
+    float4 val40 = *((float4*)(data1+28));
+    float alu0 = ((val33[0]*val31)+(val33[1]*val0)+(val33[2]*val1)+(val33[3]*val2)+(val34[0]*val3)+(val34[1]*val4)+(val34[2]*val5)+(val34[3]*val6)+(val35[0]*val7)+(val35[1]*val8)+(val35[2]*val9)+(val35[3]*val10)+(val36[0]*val11)+(val36[1]*val12)+(val36[2]*val13)+(val36[3]*val14)+(val37[0]*val15)+(val37[1]*val16)+(val37[2]*val17)+(val37[3]*val18)+(val38[0]*val19)+(val38[1]*val20)+(val38[2]*val21)+(val38[3]*val22)+(val39[0]*val23)+(val39[1]*val24)+(val39[2]*val25)+(val39[3]*val26)+(val40[0]*val27)+(val40[1]*val28)+(val40[2]*val29)+(val40[3]*val30)+val32);
+    float alu1 = (alu0*-1.4426950408889634f);
+    _Bool alu2 = (alu1!=-__builtin_inff());
+    _Bool alu3 = (alu1!=__builtin_inff());
+    _Bool alu4 = (alu1!=alu1);
+    float alu5 = (alu3?(alu4?0.0f:(alu2?alu1:0.0f)):0.0f);
+    int cast0 = (int)((alu5+((alu5<0.0f)?-0.5f:0.5f)));
+    int alu6 = (cast0>>1);
+    int precast0 = ((alu6<<23)+1065353216);
+    int precast1 = (((cast0-alu6)<<23)+1065353216);
+    float alu7 = (alu5-(float)(cast0));
+    *(data0+ridx0) = (alu0*(1/((alu3?(alu4?__builtin_nanf(""):(alu2?((alu5<__builtin_inff())?((alu5<-150.0f)?0.0f:((alu5<128.0f)?((alu5!=128.0f)?(((((((((((((alu7*0.0001535920892f)+0.001339262701f)*alu7)+0.009618384764f)*alu7)+0.05550347269f)*alu7)+0.2402264476f)*alu7)+0.6931471825f)*alu7)+1.0f)*(*((float*)&precast0))*(*((float*)&precast1))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f)));
+  }
+}

@@ -1,0 +1,66 @@
+typedef float float4 __attribute__((aligned(16),vector_size(16)));
+void r_384_12_3_4(float* restrict data0, float* restrict data1, float* restrict data2, float* restrict data3) {
+  for (int ridx0 = 0; ridx0 < 384; ridx0++) {
+    int alu0 = (ridx0*3);
+    int alu1 = (alu0+1);
+    int alu2 = (alu0+2);
+    float acc0 = 0.0f;
+    float acc1 = 0.0f;
+    float acc2 = 0.0f;
+    for (int ridx1 = 0; ridx1 < 12; ridx1++) {
+      int alu3 = (alu0+(ridx1*4608));
+      float val0 = *(data2+alu3+1);
+      float val1 = *(data2+alu3+2);
+      float val2 = *(data2+alu3+1152);
+      float val3 = *(data2+alu3+1153);
+      float val4 = *(data2+alu3+1154);
+      float val5 = *(data2+alu3+2304);
+      float val6 = *(data2+alu3+2305);
+      float val7 = *(data2+alu3+2306);
+      float val8 = *(data2+alu3+3456);
+      float val9 = *(data2+alu3+3457);
+      float val10 = *(data2+alu3+3458);
+      float val11 = *(data2+alu3);
+      float4 val12 = *((float4*)(data1+(ridx1<<2)));
+      acc0 = (acc0+(val12[0]*val11)+(val12[1]*val2)+(val12[2]*val5)+(val12[3]*val8));
+      acc1 = (acc1+(val12[0]*val0)+(val12[1]*val3)+(val12[2]*val6)+(val12[3]*val9));
+      acc2 = (acc2+(val12[0]*val1)+(val12[1]*val4)+(val12[2]*val7)+(val12[3]*val10));
+    }
+    float val13 = *(data3+alu1);
+    float alu4 = ((acc1+val13)*-1.4426950408889634f);
+    _Bool alu5 = (alu4!=-__builtin_inff());
+    _Bool alu6 = (alu4!=__builtin_inff());
+    _Bool alu7 = (alu4!=alu4);
+    float alu8 = (alu6?(alu7?0.0f:(alu5?alu4:0.0f)):0.0f);
+    int cast0 = (int)((alu8+((alu8<0.0f)?-0.5f:0.5f)));
+    int alu9 = (cast0>>1);
+    int precast0 = ((alu9<<23)+1065353216);
+    int precast1 = (((cast0-alu9)<<23)+1065353216);
+    float alu10 = (alu8-(float)(cast0));
+    *(data0+alu1) = (1/((alu6?(alu7?__builtin_nanf(""):(alu5?((alu8<__builtin_inff())?((alu8<-150.0f)?0.0f:((alu8<128.0f)?((alu8!=128.0f)?(((((((((((((alu10*0.0001535920892f)+0.001339262701f)*alu10)+0.009618384764f)*alu10)+0.05550347269f)*alu10)+0.2402264476f)*alu10)+0.6931471825f)*alu10)+1.0f)*(*((float*)&precast0))*(*((float*)&precast1))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f));
+    float val14 = *(data3+alu2);
+    float alu11 = ((acc2+val14)*-1.4426950408889634f);
+    _Bool alu12 = (alu11!=-__builtin_inff());
+    _Bool alu13 = (alu11!=__builtin_inff());
+    _Bool alu14 = (alu11!=alu11);
+    float alu15 = (alu13?(alu14?0.0f:(alu12?alu11:0.0f)):0.0f);
+    int cast1 = (int)((alu15+((alu15<0.0f)?-0.5f:0.5f)));
+    int alu16 = (cast1>>1);
+    int precast2 = ((alu16<<23)+1065353216);
+    int precast3 = (((cast1-alu16)<<23)+1065353216);
+    float alu17 = (alu15-(float)(cast1));
+    *(data0+alu2) = (1/((alu13?(alu14?__builtin_nanf(""):(alu12?((alu15<__builtin_inff())?((alu15<-150.0f)?0.0f:((alu15<128.0f)?((alu15!=128.0f)?(((((((((((((alu17*0.0001535920892f)+0.001339262701f)*alu17)+0.009618384764f)*alu17)+0.05550347269f)*alu17)+0.2402264476f)*alu17)+0.6931471825f)*alu17)+1.0f)*(*((float*)&precast2))*(*((float*)&precast3))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f));
+    float val15 = *(data3+alu0);
+    float alu18 = ((acc0+val15)*-1.4426950408889634f);
+    _Bool alu19 = (alu18!=-__builtin_inff());
+    _Bool alu20 = (alu18!=__builtin_inff());
+    _Bool alu21 = (alu18!=alu18);
+    float alu22 = (alu20?(alu21?0.0f:(alu19?alu18:0.0f)):0.0f);
+    int cast2 = (int)((alu22+((alu22<0.0f)?-0.5f:0.5f)));
+    int alu23 = (cast2>>1);
+    int precast4 = ((alu23<<23)+1065353216);
+    int precast5 = (((cast2-alu23)<<23)+1065353216);
+    float alu24 = (alu22-(float)(cast2));
+    *(data0+alu0) = (1/((alu20?(alu21?__builtin_nanf(""):(alu19?((alu22<__builtin_inff())?((alu22<-150.0f)?0.0f:((alu22<128.0f)?((alu22!=128.0f)?(((((((((((((alu24*0.0001535920892f)+0.001339262701f)*alu24)+0.009618384764f)*alu24)+0.05550347269f)*alu24)+0.2402264476f)*alu24)+0.6931471825f)*alu24)+1.0f)*(*((float*)&precast4))*(*((float*)&precast5))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f));
+  }
+}

@@ -1,0 +1,17 @@
+typedef float float4 __attribute__((aligned(16),vector_size(16)));
+void r_1000_320_4(float* restrict data0, float* restrict data1, float* restrict data2, float* restrict data3) {
+  for (int ridx0 = 0; ridx0 < 1000; ridx0++) {
+    float acc0 = 0.0f;
+    for (int ridx1 = 0; ridx1 < 320; ridx1++) {
+      int alu0 = (ridx0+(ridx1*4000));
+      float val0 = *(data2+alu0+1000);
+      float val1 = *(data2+alu0+2000);
+      float val2 = *(data2+alu0+3000);
+      float val3 = *(data2+alu0);
+      float4 val4 = *((float4*)(data1+(ridx1<<2)));
+      acc0 = (acc0+(val4[0]*val3)+(val4[1]*val0)+(val4[2]*val1)+(val4[3]*val2));
+    }
+    float val5 = *(data3+ridx0);
+    *(data0+ridx0) = (acc0+val5);
+  }
+}

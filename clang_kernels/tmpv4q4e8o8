@@ -1,0 +1,73 @@
+typedef float float4 __attribute__((aligned(16),vector_size(16)));
+void r_20_49_120_4_4_4(float* restrict data0, float* restrict data1, float* restrict data2, float* restrict data3, float* restrict data4, float* restrict data5, float* restrict data6, float* restrict data7) {
+  for (int ridx0 = 0; ridx0 < 20; ridx0++) {
+    int alu0 = (ridx0<<2);
+    for (int ridx1 = 0; ridx1 < 49; ridx1++) {
+      int alu1 = (ridx1<<2);
+      int alu2 = ((ridx0*784)+alu1);
+      int alu3 = (alu2+196);
+      int alu4 = (alu2+392);
+      int alu5 = (alu2+588);
+      float acc0 = 0.0f;
+      float acc1 = 0.0f;
+      float acc2 = 0.0f;
+      float acc3 = 0.0f;
+      float acc4 = 0.0f;
+      float acc5 = 0.0f;
+      float acc6 = 0.0f;
+      float acc7 = 0.0f;
+      float acc8 = 0.0f;
+      float acc9 = 0.0f;
+      float acc10 = 0.0f;
+      float acc11 = 0.0f;
+      float acc12 = 0.0f;
+      float acc13 = 0.0f;
+      float acc14 = 0.0f;
+      float acc15 = 0.0f;
+      for (int ridx2 = 0; ridx2 < 120; ridx2++) {
+        int alu6 = (alu1+(ridx2*784));
+        int alu7 = (alu0+(ridx2*320));
+        float4 val0 = *((float4*)(data1+alu6+196));
+        float4 val1 = *((float4*)(data1+alu6+392));
+        float4 val2 = *((float4*)(data1+alu6+588));
+        float4 val3 = *((float4*)(data1+alu6));
+        float4 val4 = *((float4*)(data2+alu7+80));
+        float4 val5 = *((float4*)(data2+alu7+160));
+        float4 val6 = *((float4*)(data2+alu7+240));
+        float4 val7 = *((float4*)(data2+alu7));
+        acc0 = (acc0+(val3[0]*val7[0])+(val0[0]*val4[0])+(val1[0]*val5[0])+(val2[0]*val6[0]));
+        acc1 = (acc1+(val3[0]*val7[1])+(val0[0]*val4[1])+(val1[0]*val5[1])+(val2[0]*val6[1]));
+        acc2 = (acc2+(val3[0]*val7[2])+(val0[0]*val4[2])+(val1[0]*val5[2])+(val2[0]*val6[2]));
+        acc3 = (acc3+(val3[0]*val7[3])+(val0[0]*val4[3])+(val1[0]*val5[3])+(val2[0]*val6[3]));
+        acc4 = (acc4+(val3[1]*val7[0])+(val0[1]*val4[0])+(val1[1]*val5[0])+(val2[1]*val6[0]));
+        acc5 = (acc5+(val3[1]*val7[1])+(val0[1]*val4[1])+(val1[1]*val5[1])+(val2[1]*val6[1]));
+        acc6 = (acc6+(val3[1]*val7[2])+(val0[1]*val4[2])+(val1[1]*val5[2])+(val2[1]*val6[2]));
+        acc7 = (acc7+(val3[1]*val7[3])+(val0[1]*val4[3])+(val1[1]*val5[3])+(val2[1]*val6[3]));
+        acc8 = (acc8+(val3[2]*val7[0])+(val0[2]*val4[0])+(val1[2]*val5[0])+(val2[2]*val6[0]));
+        acc9 = (acc9+(val3[2]*val7[1])+(val0[2]*val4[1])+(val1[2]*val5[1])+(val2[2]*val6[1]));
+        acc10 = (acc10+(val3[2]*val7[2])+(val0[2]*val4[2])+(val1[2]*val5[2])+(val2[2]*val6[2]));
+        acc11 = (acc11+(val3[2]*val7[3])+(val0[2]*val4[3])+(val1[2]*val5[3])+(val2[2]*val6[3]));
+        acc12 = (acc12+(val3[3]*val7[0])+(val0[3]*val4[0])+(val1[3]*val5[0])+(val2[3]*val6[0]));
+        acc13 = (acc13+(val3[3]*val7[1])+(val0[3]*val4[1])+(val1[3]*val5[1])+(val2[3]*val6[1]));
+        acc14 = (acc14+(val3[3]*val7[2])+(val0[3]*val4[2])+(val1[3]*val5[2])+(val2[3]*val6[2]));
+        acc15 = (acc15+(val3[3]*val7[3])+(val0[3]*val4[3])+(val1[3]*val5[3])+(val2[3]*val6[3]));
+      }
+      float4 val8 = *((float4*)(data3+alu0));
+      float4 val9 = *((float4*)(data4+alu0));
+      float4 val10 = *((float4*)(data5+alu0));
+      float alu8 = __builtin_sqrtf((1/(val10[0]+1e-05f)));
+      float alu9 = __builtin_sqrtf((1/(val10[1]+1e-05f)));
+      float alu10 = __builtin_sqrtf((1/(val10[2]+1e-05f)));
+      float alu11 = __builtin_sqrtf((1/(val10[3]+1e-05f)));
+      float4 val11 = *((float4*)(data6+alu0));
+      float4 val12 = *((float4*)(data7+alu3));
+      *((float4*)(data0+alu3)) = (float4){(((acc1-val8[1])*val9[1]*alu9)+val11[1]+val12[0]),(((acc5-val8[1])*val9[1]*alu9)+val11[1]+val12[1]),(((acc9-val8[1])*val9[1]*alu9)+val11[1]+val12[2]),(((acc13-val8[1])*val9[1]*alu9)+val11[1]+val12[3])};
+      float4 val13 = *((float4*)(data7+alu4));
+      *((float4*)(data0+alu4)) = (float4){(((acc2-val8[2])*val9[2]*alu10)+val11[2]+val13[0]),(((acc6-val8[2])*val9[2]*alu10)+val11[2]+val13[1]),(((acc10-val8[2])*val9[2]*alu10)+val11[2]+val13[2]),(((acc14-val8[2])*val9[2]*alu10)+val11[2]+val13[3])};
+      float4 val14 = *((float4*)(data7+alu5));
+      *((float4*)(data0+alu5)) = (float4){(((acc3-val8[3])*val9[3]*alu11)+val11[3]+val14[0]),(((acc7-val8[3])*val9[3]*alu11)+val11[3]+val14[1]),(((acc11-val8[3])*val9[3]*alu11)+val11[3]+val14[2]),(((acc15-val8[3])*val9[3]*alu11)+val11[3]+val14[3])};
+      float4 val15 = *((float4*)(data7+alu2));
+      *((float4*)(data0+alu2)) = (float4){(((acc0-val8[0])*val9[0]*alu8)+val11[0]+val15[0]),(((acc4-val8[0])*val9[0]*alu8)+val11[0]+val15[1]),(((acc8-val8[0])*val9[0]*alu8)+val11[0]+val15[2]),(((acc12-val8[0])*val9[0]*alu8)+val11[0]+val15[3])};
+    }
+  }
+}

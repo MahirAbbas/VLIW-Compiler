@@ -1,0 +1,37 @@
+typedef float float4 __attribute__((aligned(16),vector_size(16)));
+void r_96_56_14_4_3_3(float* restrict data0, float* restrict data1, float* restrict data2, float* restrict data3, float* restrict data4, float* restrict data5, float* restrict data6) {
+  float4 cast0 = (float4){0.0f,0.0f,0.0f,0.0f};
+  for (int ridx0 = 0; ridx0 < 96; ridx0++) {
+    for (int ridx1 = 0; ridx1 < 56; ridx1++) {
+      _Bool alu0 = (ridx1<55);
+      for (int ridx2 = 0; ridx2 < 14; ridx2++) {
+        int alu1 = ((ridx2<<3)+(ridx1*224)+(ridx0*12544));
+        _Bool alu2 = (ridx2<13);
+        float val0 = (alu2?*(data1+alu1+8):0.0f);
+        float val1 = (alu2?*(data1+alu1+120):0.0f);
+        float val2 = ((alu0&alu2)?*(data1+alu1+232):0.0f);
+        float val3 = *(data2+ridx0+96);
+        float val4 = *(data2+ridx0+192);
+        float val5 = *(data2+ridx0+288);
+        float val6 = *(data2+ridx0+384);
+        float val7 = *(data2+ridx0+480);
+        float val8 = *(data2+ridx0+576);
+        float val9 = *(data2+ridx0+672);
+        float val10 = *(data2+ridx0+768);
+        float val11 = *(data2+ridx0);
+        float val12 = *(data3+ridx0);
+        float val13 = *(data4+ridx0);
+        float val14 = *(data5+ridx0);
+        float alu3 = __builtin_sqrtf((1/(val14+1e-05f)));
+        float val15 = *(data6+ridx0);
+        float4 val16 = *((float4*)(data1+alu1+4));
+        float4 val17 = *((float4*)(data1+alu1+112));
+        float4 val18 = *((float4*)(data1+alu1+116));
+        float4 val19 = (alu0?*((float4*)(data1+alu1+224)):cast0);
+        float4 val20 = (alu0?*((float4*)(data1+alu1+228)):cast0);
+        float4 val21 = *((float4*)(data1+alu1));
+        *((float4*)(data0+(ridx1*56)+(ridx0*3136)+(ridx2<<2))) = (float4){(((((val21[0]*val11)+(val17[0]*val5)+(val19[0]*val8)+(val21[1]*val3)+(val17[1]*val6)+(val19[1]*val9)+(val21[2]*val4)+(val17[2]*val7)+(val19[2]*val10))-val12)*val13*alu3)+val15),(((((val21[2]*val11)+(val17[2]*val5)+(val19[2]*val8)+(val21[3]*val3)+(val17[3]*val6)+(val19[3]*val9)+(val16[0]*val4)+(val18[0]*val7)+(val20[0]*val10))-val12)*val13*alu3)+val15),(((((val16[0]*val11)+(val18[0]*val5)+(val20[0]*val8)+(val16[1]*val3)+(val18[1]*val6)+(val20[1]*val9)+(val16[2]*val4)+(val18[2]*val7)+(val20[2]*val10))-val12)*val13*alu3)+val15),(((((val16[2]*val11)+(val18[2]*val5)+(val20[2]*val8)+(val16[3]*val3)+(val18[3]*val6)+(val20[3]*val9)+(val0*val4)+(val1*val7)+(val2*val10))-val12)*val13*alu3)+val15)};
+      }
+    }
+  }
+}

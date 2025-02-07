@@ -1,0 +1,21 @@
+
+void r_672_49(float* restrict data0, float* restrict data1) {
+  for (int ridx0 = 0; ridx0 < 672; ridx0++) {
+    float acc0 = 0.0f;
+    for (int ridx1 = 0; ridx1 < 49; ridx1++) {
+      float val0 = *(data1+(ridx0*49)+ridx1);
+      float alu0 = (val0*-1.4426950408889634f);
+      _Bool alu1 = (alu0!=-__builtin_inff());
+      _Bool alu2 = (alu0!=__builtin_inff());
+      _Bool alu3 = (alu0!=alu0);
+      float alu4 = (alu2?(alu3?0.0f:(alu1?alu0:0.0f)):0.0f);
+      int cast0 = (int)((alu4+((alu4<0.0f)?-0.5f:0.5f)));
+      int alu5 = (cast0>>1);
+      int precast0 = ((alu5<<23)+1065353216);
+      int precast1 = (((cast0-alu5)<<23)+1065353216);
+      float alu6 = (alu4-(float)(cast0));
+      acc0 = (acc0+(val0*(1/((alu2?(alu3?__builtin_nanf(""):(alu1?((alu4<__builtin_inff())?((alu4<-150.0f)?0.0f:((alu4<128.0f)?((alu4!=128.0f)?(((((((((((((alu6*0.0001535920892f)+0.001339262701f)*alu6)+0.009618384764f)*alu6)+0.05550347269f)*alu6)+0.2402264476f)*alu6)+0.6931471825f)*alu6)+1.0f)*(*((float*)&precast0))*(*((float*)&precast1))):__builtin_inff()):__builtin_inff())):__builtin_nanf("")):0.0f)):__builtin_inff())+1.0f))));
+    }
+    *(data0+ridx0) = (acc0*0.020408162847161293f);
+  }
+}

@@ -1,0 +1,16 @@
+typedef float float4 __attribute__((aligned(16),vector_size(16)));
+void E_3_12544_4(float* restrict data0, float* restrict data1, float* restrict data2, float* restrict data3) {
+  for (int ridx0 = 0; ridx0 < 3; ridx0++) {
+    for (int ridx1 = 0; ridx1 < 12544; ridx1++) {
+      int alu0 = (ridx0+(ridx1*12));
+      float val0 = *(data1+alu0+3);
+      float val1 = *(data1+alu0+6);
+      float val2 = *(data1+alu0+9);
+      float val3 = *(data1+alu0);
+      float val4 = *(data2+ridx0);
+      float val5 = *(data3+ridx0);
+      float alu1 = (1/val5);
+      *((float4*)(data0+(ridx0*50176)+(ridx1<<2))) = (float4){(((val3*0.003921568859368563f)-val4)*alu1),(((val0*0.003921568859368563f)-val4)*alu1),(((val1*0.003921568859368563f)-val4)*alu1),(((val2*0.003921568859368563f)-val4)*alu1)};
+    }
+  }
+}
